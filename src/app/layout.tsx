@@ -4,6 +4,7 @@ import '../styles/globals.css';
 import Navbar from '@/components/layouts/navbar';
 import { ThemeSwitcher } from '@/lib/theme-switcher';
 import Footer from '@/components/layouts/footer';
+import { MovieProvider } from '@/lib/movie-provider';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -51,11 +52,13 @@ export default function RootLayout({
     <html lang='en' className='dark'>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeSwitcher>
-          <div className='flex min-h-screen flex-col'>
-            <Navbar />
-            <main className='flex-1'>{children}</main>
-            <Footer />
-          </div>
+          <MovieProvider>
+            <div className='flex min-h-screen flex-col'>
+              <Navbar />
+              <main className='flex-1'>{children}</main>
+              <Footer />
+            </div>
+          </MovieProvider>
         </ThemeSwitcher>
       </body>
     </html>

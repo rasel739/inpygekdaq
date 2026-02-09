@@ -1,3 +1,4 @@
+'use client';
 import { Movie } from '@/types/movie.type';
 import {
   formatRating,

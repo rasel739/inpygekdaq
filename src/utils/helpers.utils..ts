@@ -1,5 +1,6 @@
 import { IMAGE_BASE_URL } from '@/constants/movie.constants';
 import { BackdropSize, PosterSize } from '@/types/helpers.type';
+import { Movie, StoredMovie } from '@/types/movie.type';
 
 export const getBackdropUrl = (path: string | null, size: BackdropSize = 'w1280'): string => {
   if (!path) return '/placeholder-backdrop.svg';
@@ -23,4 +24,31 @@ export const getYear = (dateString: string): string => {
 export const truncateText = (text: string, maxLength: number): string => {
   if (text.length <= maxLength) return text;
   return text.slice(0, maxLength).trim() + '...';
+};
+
+export const getRatingColor = (rating: number): string => {
+  if (rating >= 7.5) return 'text-green-500';
+  if (rating >= 5) return 'text-yellow-500';
+  return 'text-red-500';
+};
+
+export const movieToStoredMovie = (
+  movie:
+    | Movie
+    | {
+        id: number;
+        title: string;
+        poster_path: string | null;
+        vote_average: number;
+        release_date: string;
+      }
+): StoredMovie => {
+  return {
+    id: movie.id,
+    title: movie.title,
+    poster_path: movie.poster_path,
+    vote_average: movie.vote_average,
+    release_date: movie.release_date,
+    addedAt: Date.now(),
+  };
 };
