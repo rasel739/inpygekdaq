@@ -28,7 +28,7 @@ const SearchField = ({ setIsMenuOpen }: SearchFieldProps) => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder='Search movies...'
-          className='w-full md:w-64 rounded-full bg-gray-800 py-2 pl-10 pr-4 text-sm text-white
+          className='w-full md:w-96 rounded-full bg-gray-800 py-2 pl-10 pr-4 text-sm text-white
                              placeholder-gray-400 outline-none ring-1 ring-gray-700 transition-all
                              focus:ring-2 focus:ring-purple-500'
         />
