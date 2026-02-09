@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { NAV_LINKS } from '@/constants';
 import { Icons } from '@/lib/icons';
 import ThemeToggle from '../shared/theme-toggle';
-import Image from 'next/image';
 import SearchField from '../forms/search-field';
+import Logo from '../shared/logo';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,18 +15,7 @@ const Navbar = () => {
     <header className='sticky top-0 z-50 border-b border-gray-800 bg-gray-950/80 backdrop-blur-xl'>
       <div className='container mx-auto px-4'>
         <div className='flex h-16 items-center justify-between gap-4'>
-          {/* Logo */}
-          <Link href='/' className='flex items-center gap-2 text-xl font-bold'>
-            <Image
-              src='/images/movie-discovery-app-logo.png'
-              alt='Movie Discovery App Logo'
-              width={32}
-              height={32}
-            />
-            <span className='hidden bg-linear-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent sm:inline'>
-              Movie Discovery App
-            </span>
-          </Link>
+          <Logo />
           <div className='hidden md:block'>
             <SearchField />
           </div>
