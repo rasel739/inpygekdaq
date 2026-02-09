@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import Logo from '../shared/logo';
 import { Copyright } from 'lucide-react';
-import { NAV_LINKS } from '@/constants';
+import { NAV_LINKS } from '@/constants/navbar.constants';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

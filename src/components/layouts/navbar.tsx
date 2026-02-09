@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { NAV_LINKS } from '@/constants';
+import { NAV_LINKS } from '@/constants/navbar.constants';
 import { Icons } from '@/lib/icons';
 import ThemeToggle from '../shared/theme-toggle';
 import SearchField from '../forms/search-field';
