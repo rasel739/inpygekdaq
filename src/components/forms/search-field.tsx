@@ -1,6 +1,6 @@
-import { Icons } from '@/lib/icons';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
+import SearchInput from '../ui/search-input';
 
 type SearchFieldProps = {
   setIsMenuOpen?: (isMenuOpen: boolean) => void;
@@ -21,18 +21,16 @@ const SearchField = ({ setIsMenuOpen }: SearchFieldProps) => {
   };
   return (
     <form onSubmit={handleSearch}>
-      <div className='relative'>
-        <Icons.Search className='absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400' />
-        <input
-          type='text'
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder='Search movies...'
-          className='w-full md:w-96 rounded-full bg-gray-800 py-2 pl-10 pr-4 text-sm text-white
-                             placeholder-gray-400 outline-none ring-1 ring-gray-700 transition-all
-                             focus:ring-2 focus:ring-purple-500'
-        />
-      </div>
+      <SearchInput
+        value={searchQuery}
+        onChange={setSearchQuery}
+        placeholder='Search movies...'
+        width='w-full md:w-96'
+        iconSize='h-4 w-4'
+        paddingY='py-2'
+        paddingLeft='pl-10'
+        rounded='rounded-full'
+      />
     </form>
   );
 };

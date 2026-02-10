@@ -12,29 +12,30 @@ export const useLocalStorage = <T>(
   useEffect(() => {
     try {
       const item = localStorage.getItem(key);
-      if (item) {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
+      if (item !== null) {
         setStoredValue(JSON.parse(item));
       }
     } catch (error) {
       console.error(`Error reading localStorage key "${key}":`, error);
+    } finally {
+      setIsHydrated(true);
     }
-    setIsHydrated(true);
   }, [key]);
 
   const setValue = useCallback(
     (value: T | ((prev: T) => T)) => {
       try {
-        const valueToStore = value instanceof Function ? value(storedValue) : value;
-        setStoredValue(valueToStore);
-        if (typeof window !== 'undefined') {
+        setStoredValue((prev) => {
+          const valueToStore = value instanceof Function ? value(prev) : value;
+
           window.localStorage.setItem(key, JSON.stringify(valueToStore));
-        }
+          return valueToStore;
+        });
       } catch (error) {
         console.error(`Error setting localStorage key "${key}":`, error);
       }
     },
-    [key, storedValue]
+    [key]
   );
 
   return [isHydrated ? storedValue : initialValue, setValue];

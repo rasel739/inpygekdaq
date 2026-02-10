@@ -59,7 +59,7 @@ const Movie = async ({ params }: MoviePageProps) => {
     <div className='min-h-screen'>
       <RecentlyViewTracker movie={movie} />
 
-      <section className='relative h-75 w-full md:h-100 lg:h-125'>
+      <section className='relative h-75 w-full md:h-100 lg:h-180'>
         <div className='absolute inset-0'>
           <Image
             src={getBackdropUrl(movie.backdrop_path, 'w1280')}
@@ -72,7 +72,7 @@ const Movie = async ({ params }: MoviePageProps) => {
         </div>
       </section>
 
-      <div className='container mx-auto px-4'>
+      <div className='container mx-auto px-4 mt-52'>
         <div className='-mt-32 flex flex-col gap-8 md:-mt-48 md:flex-row'>
           <div className='mx-auto w-50 shrink-0 md:mx-0 md:w-75'>
             <Image
@@ -86,7 +86,7 @@ const Movie = async ({ params }: MoviePageProps) => {
           </div>
 
           <div className='flex-1 py-4 md:py-8'>
-            <h1 className='mb-2 text-3xl font-bold text-white md:text-4xl lg:text-5xl'>
+            <h1 className='mb-2 text-3xl font-bold  md:text-4xl lg:text-5xl'>
               {movie.title}
               <span className='ml-3 text-xl font-normal text-gray-400 md:text-2xl'>
                 ({getYear(movie.release_date)})
@@ -139,16 +139,14 @@ const Movie = async ({ params }: MoviePageProps) => {
             </div>
 
             <div className='mb-6'>
-              <h2 className='mb-2 text-xl font-semibold text-white'>Overview</h2>
-              <p className='text-gray-300 leading-relaxed'>
-                {movie.overview || 'No overview available.'}
-              </p>
+              <h2 className='mb-2 text-xl font-semibold '>Overview</h2>
+              <p className='  leading-relaxed'>{movie.overview || 'No overview available.'}</p>
             </div>
 
             {director && (
               <div className='mb-6'>
                 <h3 className='text-sm font-medium text-gray-400'>Director</h3>
-                <p className='text-white'>{director.name}</p>
+                <p>{director.name}</p>
               </div>
             )}
           </div>
@@ -173,7 +171,7 @@ const Movie = async ({ params }: MoviePageProps) => {
                   </div>
                   <div className='p-3'>
                     <p className='font-medium text-white line-clamp-1'>{person.name}</p>
-                    <p className='text-sm text-gray-400 line-clamp-1'>{person.character}</p>
+                    <p className='text-sm text-gray-300 line-clamp-1'>{person.character}</p>
                   </div>
                 </div>
               ))}

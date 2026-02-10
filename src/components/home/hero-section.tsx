@@ -13,7 +13,7 @@ import Link from 'next/link';
 const HeroSection = ({ movie }: { movie: Movie }) => {
   return (
     <section className='relative h-125 w-full overflow-hidden md:h-150'>
-      <div className='absolute inset-0'>
+      <div className='absolute inset-0' suppressHydrationWarning>
         <Image
           src={getBackdropUrl(movie.backdrop_path, 'w1280')}
           alt={movie.title}

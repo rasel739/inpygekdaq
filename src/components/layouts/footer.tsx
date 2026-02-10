@@ -13,7 +13,7 @@ const Footer = () => {
         <div className='flex flex-col items-center gap-6 md:flex-row md:justify-between'>
           <div className='flex flex-col items-center gap-2 md:items-start'>
             <Logo />
-            <p className='text-center text-sm text-gray-500 md:text-left ml-10'>
+            <p className='text-center text-sm text-gray-500 md:text-left '>
               Discover your next favorite movie
             </p>
           </div>

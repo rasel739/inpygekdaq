@@ -12,10 +12,11 @@
   --muted-foreground: #9ca3af;
   --accent: #ec4899;
   --border: #1f2937;
+  --edge-fade: oklch(18% 0.02 260);
 }
 
 .light {
-  --background: #ffffff;
+  --background: oklch(98.297% 0.00532 16.091);
   --foreground: #030712;
   --card: #f9fafb;
   --card-foreground: #030712;
@@ -24,6 +25,7 @@
   --muted: #e5e7eb;
   --muted-foreground: #6b7280;
   --border: #e5e7eb;
+  --edge-fade: transparent;
 }
 
 @theme inline {
