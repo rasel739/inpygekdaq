@@ -1,5 +1,5 @@
 import { IMAGE_BASE_URL } from '@/constants/movie.constants';
-import { BackdropSize, PosterSize } from '@/types/helpers.type';
+import { BackdropSize, PosterSize, ProfileSize } from '@/types/helpers.type';
 import { Movie, StoredMovie } from '@/types/movie.type';
 
 export const getBackdropUrl = (path: string | null, size: BackdropSize = 'w1280'): string => {
@@ -51,4 +51,34 @@ export const movieToStoredMovie = (
     release_date: movie.release_date,
     addedAt: Date.now(),
   };
+};
+
+export const formatDate = (dateString: string): string => {
+  if (!dateString) return 'Unknown';
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+};
+
+export const formatRuntime = (minutes: number): string => {
+  if (!minutes) return 'Unknown';
+  const hours = Math.floor(minutes / 60);
+  const mins = minutes % 60;
+  if (hours === 0) return `${mins}m`;
+  if (mins === 0) return `${hours}h`;
+  return `${hours}h ${mins}m`;
+};
+
+export const getProfileUrl = (path: string | null, size: ProfileSize = 'w185'): string => {
+  if (!path) return '/placeholder-profile.svg';
+  return `${IMAGE_BASE_URL}/${size}${path}`;
+};
+
+export const getRatingBgColor = (rating: number): string => {
+  if (rating >= 7.5) return 'bg-green-500';
+  if (rating >= 5) return 'bg-yellow-500';
+  return 'bg-red-500';
 };

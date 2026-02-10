@@ -1,36 +1,129 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Movie Discovery App
+
+A responsive movie browsing application built with Next.js, TypeScript, and Tailwind CSS, powered by The Movie Database (TMDB) API.
+
+## Features
+
+### Core Features
+
+- **Home Page**: Top rated movies, popular movies per genre, genre browsing
+- **Genre Page**: Movies by genre with sorting options (popularity, release date, rating, title)
+- **Movie Details**: Poster, overview, rating, runtime, cast list, and similar movies
+- **Recently Viewed**: Automatically tracks your browsing history
+- **Watch Later**: Save movies to watch later with a single click
+- **Search**: Search movies by title with real-time results
+
+### Bonus Features
+
+- **Dark/Light Mode**: Toggle between themes
+- **SEO Optimization**: Dynamic meta tags, Open Graph support
+- **Responsive Design**: Mobile, tablet, and desktop support
+- **Loading States**: Skeleton loaders for better UX
+- **Error Handling**: Graceful error states with retry options
+
+## Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 4
+- **API**: TMDB API v3
+- **State Management**: React Context + localStorage
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 24+
+- pnpm
+- TMDB API Key
+
+### Installation
+
+1. Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <your-repo-url>
+cd movie-discovery
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Create a `.env.local` file with your TMDB API key:
 
-## Learn More
+```env
+TMDB_API_KEY=your_api_key_here
+NEXT_PUBLIC_TMDB_IMAGE_BASE_URL=https://image.tmdb.org/t/p
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Run the development server:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── api/               # API routes
+│   ├── genre/[id]/        # Genre page
+│   ├── movie/[id]/        # Movie details page
+│   ├── recently-viewed/   # Recently viewed page
+│   ├── search/            # Search page
+│   └── watch-later/       # Watch later page
+├── components/
+│   ├── layout/            # Header, Footer, ThemeToggle
+│   └── ui/                # MovieCard, MovieGrid, Skeleton, etc.
+├── lib/               # React Context providers
+├── hooks/                 # Custom hooks
+├── services/              # TMDB API service
+├── types/                 # TypeScript interfaces
+└── utils/                 # Helper utilities
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## API Endpoints Used
+
+- `GET /genre/movie/list` - Get genre list
+- `GET /movie/top_rated` - Get top rated movies
+- `GET /discover/movie` - Discover movies with filters
+- `GET /movie/{id}` - Get movie details
+- `GET /movie/{id}/similar` - Get similar movies
+- `GET /search/movie` - Search movies
+
+## Environment Variables
+
+| Variable                          | Description         | Required |
+| --------------------------------- | ------------------- | -------- |
+| `TMDB_API_KEY`                    | Your TMDB API key   | Yes      |
+| `NEXT_PUBLIC_TMDB_IMAGE_BASE_URL` | TMDB image base URL | Yes      |
+
+## Scripts
+
+- `pnpm dev` - Start development server
+- `pnpm build` - Build for production
+- `pnpm start` - Start production server
+- `pnpm lint` - Run ESLint
+
+## Deployment
+
+The app can be deployed to Vercel, Netlify, or any platform supporting Next.js:
+
+```bash
+pnpm build
+```
+
+## License
+
+MIT
+
+## Acknowledgements
+
+- [TMDB](https://www.themoviedb.org/) for the movie data API
+- [Next.js](https://nextjs.org/) for the framework
