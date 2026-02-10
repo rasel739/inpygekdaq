@@ -1,4 +1,4 @@
-import RecentlyViewTracker from '@/components/movie/resently-view-tracker';
+import RecentlyViewTracker from '@/components/movie/recently-view-tracker';
 import MovieCarousel from '@/components/ui/movie-carousel';
 import { getGenres, getMovieDetails, getSimilarMovies } from '@/services/tmdb';
 import {
