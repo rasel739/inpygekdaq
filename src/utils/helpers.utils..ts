@@ -82,3 +82,20 @@ export const getRatingBgColor = (rating: number): string => {
   if (rating >= 5) return 'bg-yellow-500';
   return 'bg-red-500';
 };
+
+export const getGridClass = (columns: 'auto' | 2 | 3 | 4 | 5 | 6) => {
+  switch (columns) {
+    case 2:
+      return 'grid-cols-2';
+    case 3:
+      return 'grid-cols-2 sm:grid-cols-3';
+    case 4:
+      return 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4';
+    case 5:
+      return 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5';
+    case 6:
+      return 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6';
+    default:
+      return 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6';
+  }
+};

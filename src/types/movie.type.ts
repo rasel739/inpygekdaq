@@ -102,3 +102,9 @@ export interface SortOptionItem {
   value: SortOption;
   label: string;
 }
+
+export interface MovieGridProps {
+  movies: (Movie | StoredMovie)[];
+  showWatchLater?: boolean;
+  columns?: 'auto' | 2 | 3 | 4 | 5 | 6;
+}
