@@ -1,4 +1,4 @@
-import ResentlyClient from '@/components/movie/resently-client';
+import ResentlyClient from '@/components/movie/recently-client';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   },
 };
 
-const ResentlyViewed = () => {
+const RecentlyViewed = () => {
   return (
     <div className='container mx-auto px-4 py-8'>
       <div className='mb-8'>
@@ -23,4 +23,4 @@ const ResentlyViewed = () => {
   );
 };
 
-export default ResentlyViewed;
+export default RecentlyViewed;
