@@ -1,3 +1,4 @@
+'use client';
 import { Icons } from '@/lib/icons';
 import { useMovies } from '@/lib/movie-provider';
 import { Movie, StoredMovie } from '@/types/movie.type';
@@ -75,12 +76,12 @@ const MovieCard = ({ movie, showWatchLater = true, priority = false }: MovieCard
       {/* Info Section */}
       <div className='flex flex-1 flex-col gap-1 p-3'>
         <h3
-          className='line-clamp-2 text-sm font-semibold text-white transition-colors
-                       group-hover:text-purple-400'
+          className='line-clamp-2 text-sm font-semibold  transition-colors
+                       group-hover:text-purple-700'
         >
           {movie.title}
         </h3>
-        <span className='text-xs text-gray-400'>{getYear(movie.release_date)}</span>
+        <span className='text-xs '>{getYear(movie.release_date)}</span>
       </div>
     </Link>
   );

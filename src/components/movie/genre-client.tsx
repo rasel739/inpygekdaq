@@ -51,7 +51,8 @@ const GenreClient = ({
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
-        handlePageChange={handlePageChange}
+        onPageChange={handlePageChange}
+        variant='numbers'
       />
     </>
   );
