@@ -2,6 +2,7 @@
 
 import generatePageNumbers from '@/utils/pagination.utils';
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
+import { Button } from '../ui/button';
 
 type PaginationProps = {
   currentPage: number;
@@ -28,16 +29,15 @@ const Pagination = ({
   return (
     <div className='mt-8 flex items-center justify-center gap-4'>
       {/* Previous */}
-      <button
+
+      <Button
+        variant='secondary'
         onClick={() => onPageChange(currentPage - 1)}
         disabled={isPrevDisabled}
-        className='flex items-center gap-2 rounded-lg bg-gray-800 px-4 py-2
-                   text-sm font-medium text-white transition-colors
-                   hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-50'
       >
         <ChevronLeftIcon className='h-4 w-4' />
         Previous
-      </button>
+      </Button>
 
       {/* Middle Section */}
       {variant === 'numbers' ? (
@@ -48,17 +48,14 @@ const Pagination = ({
                 ...
               </span>
             ) : (
-              <button
+              <Button
                 key={pageNum}
+                variant='pagination'
+                active={pageNum === currentPage}
                 onClick={() => onPageChange(pageNum as number)}
-                className={`h-10 w-10 rounded-lg text-sm font-medium transition-colors ${
-                  pageNum === currentPage
-                    ? 'bg-purple-600 text-white'
-                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
-                }`}
               >
                 {pageNum}
-              </button>
+              </Button>
             )
           )}
         </div>
@@ -69,16 +66,15 @@ const Pagination = ({
       )}
 
       {/* Next */}
-      <button
+
+      <Button
+        variant='secondary'
         onClick={() => onPageChange(currentPage + 1)}
         disabled={isNextDisabled}
-        className='flex items-center gap-2 rounded-lg bg-gray-800 px-4 py-2
-                   text-sm font-medium text-white transition-colors
-                   hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-50'
       >
-        Next
         <ChevronRightIcon className='h-4 w-4' />
-      </button>
+        Next
+      </Button>
     </div>
   );
 };

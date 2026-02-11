@@ -1,4 +1,5 @@
 'use client';
+import { Button } from '@/components/ui/button';
 import { FileExclamationPoint } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect } from 'react';
@@ -17,13 +18,7 @@ const Error = ({ error, reset }: { error: Error & { digest?: string }; reset: ()
         An error occurred while loading this page. Please try again.
       </p>
       <div className='flex gap-4'>
-        <button
-          onClick={reset}
-          className='rounded-full bg-purple-600 px-6 py-3 font-semibold text-white
-                     transition-colors hover:bg-purple-500'
-        >
-          Try Again
-        </button>
+        <Button onClick={reset}>Try Again</Button>
         <Link
           href='/'
           className='rounded-full bg-gray-700 px-6 py-3 font-semibold text-white

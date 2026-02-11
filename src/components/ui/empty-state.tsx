@@ -25,7 +25,7 @@ const EmptyState = ({ title, description, icon = 'film', action }: EmptyStatePro
       <div className='mb-4 rounded-full bg-gray-800 p-6'>
         <IconComponent className='h-12 w-12 text-gray-500' />
       </div>
-      <h3 className='mb-2 text-xl font-semibold text-white'>{title}</h3>
+      <h3 className='mb-2 text-xl font-semibold '>{title}</h3>
       <p className='mb-6 max-w-md text-gray-400'>{description}</p>
       {action && (
         <a

@@ -1,4 +1,5 @@
 import { FileExclamationPoint } from 'lucide-react';
+import { Button } from './button';
 
 interface ErrorStateProps {
   title?: string;
@@ -13,15 +14,7 @@ const ErrorState = ({ title = 'Something went wrong', message, onRetry }: ErrorS
       </div>
       <h3 className='mb-2 text-xl font-semibold text-white'>{title}</h3>
       <p className='mb-6 max-w-md text-gray-400'>{message}</p>
-      {onRetry && (
-        <button
-          onClick={onRetry}
-          className='rounded-full bg-purple-600 px-6 py-3 font-semibold text-white
-                     transition-colors hover:bg-purple-500'
-        >
-          Try Again
-        </button>
-      )}
+      {onRetry && <Button onClick={onRetry}>Try Again</Button>}
     </div>
   );
 };

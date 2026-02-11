@@ -18,6 +18,7 @@ export default async function Home() {
   }));
 
   const genreMovies = await Promise.all(genreMoviesPromises);
+
   return (
     <div className='min-h-screen'>
       <HeroSection movie={featuredMovie} />

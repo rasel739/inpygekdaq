@@ -3,6 +3,7 @@
 import { useMovies } from '@/lib/movie-provider';
 import EmptyState from '../ui/empty-state';
 import MovieGrid from '../ui/movie-grid';
+import { Button } from '../ui/button';
 
 const WatchLaterClient = () => {
   const { watchLater, clearWatchLater } = useMovies();
@@ -26,12 +27,9 @@ const WatchLaterClient = () => {
         <p className='text-sm text-gray-400'>
           {watchLater.length} movie{watchLater?.length !== 1 ? 's' : ''}
         </p>
-        <button
-          onClick={clearWatchLater}
-          className='text-sm text-red-400 transition-colors hover:text-red-300'
-        >
+        <Button variant='danger' onClick={clearWatchLater}>
           Clear All
-        </button>
+        </Button>
       </div>
 
       <MovieGrid movies={watchLater} />

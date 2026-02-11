@@ -16,7 +16,7 @@ const SearchClient = () => {
   return (
     <div>
       <div className='mb-8'>
-        <h1 className='mb-4 text-3xl font-bold text-white md:text-4xl'>Search Movies</h1>
+        <h1 className='mb-4 text-3xl font-bold  md:text-4xl'>Search Movies</h1>
 
         <SearchInput
           value={query}

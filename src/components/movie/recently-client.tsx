@@ -3,6 +3,7 @@
 import { useMovies } from '@/lib/movie-provider';
 import EmptyState from '../ui/empty-state';
 import MovieGrid from '../ui/movie-grid';
+import { Button } from '../ui/button';
 
 const ResentlyClient = () => {
   const { recentlyViewed, clearRecentlyViewed } = useMovies();
@@ -27,12 +28,9 @@ const ResentlyClient = () => {
         <p className='text-sm text-gray-400'>
           {recentlyViewed.length} movie{recentlyViewed.length !== 1 ? 's' : ''}
         </p>
-        <button
-          onClick={clearRecentlyViewed}
-          className='text-sm text-red-400 transition-colors hover:text-red-300'
-        >
+        <Button variant='danger' onClick={clearRecentlyViewed}>
           Clear All
-        </button>
+        </Button>
       </div>
 
       <MovieGrid movies={recentlyViewed} />

@@ -6,6 +6,7 @@ import { formatRating, getPosterUrl, getRatingColor, getYear } from '@/utils/hel
 import { BookmarkCheckIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Button } from './button';
 
 interface MovieCardProps {
   movie: Movie | StoredMovie;
@@ -58,25 +59,24 @@ const MovieCard = ({ movie, showWatchLater = true, priority = false }: MovieCard
 
         {/* Watch Later Button */}
         {showWatchLater && (
-          <button
+          <Button
+            variant='ghost'
             onClick={handleWatchLaterClick}
-            className='absolute right-2 top-2 rounded-full bg-black/70 p-2 backdrop-blur-sm
-                       transition-all duration-200 hover:bg-purple-600 hover:scale-110'
-            aria-label={inWatchLater ? 'Remove from Watch Later' : 'Add to Watch Later'}
+            className='absolute right-2 top-2'
           >
             {inWatchLater ? (
               <BookmarkCheckIcon className='h-4 w-4 text-purple-400' />
             ) : (
               <Icons.Bookmark className='h-4 w-4 text-white' />
             )}
-          </button>
+          </Button>
         )}
       </div>
 
       {/* Info Section */}
       <div className='flex flex-1 flex-col gap-1 p-3'>
         <h3
-          className='line-clamp-2 text-sm font-semibold  transition-colors
+          className='line-clamp-1 text-sm font-semibold  transition-colors
                        group-hover:text-purple-700'
         >
           {movie.title}
