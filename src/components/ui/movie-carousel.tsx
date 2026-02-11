@@ -3,6 +3,7 @@ import { Movie } from '@/types/movie.type';
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 import { useRef } from 'react';
 import MovieCard from './movie-card';
+import { Button } from './button';
 
 interface MovieCarouselProps {
   movies: Movie[];
@@ -41,20 +42,23 @@ const MovieCarousel = ({ movies, title, genreId }: MovieCarouselProps) => {
 
         {/* Navigation Arrows */}
         <div className='hidden gap-2 md:flex'>
-          <button
+          <Button
+            variant='icon'
             onClick={() => scroll('left')}
-            className='rounded-full bg-gray-800 p-2 transition-colors hover:bg-purple-600'
             aria-label='Scroll left'
+            className='hover:bg-purple-600'
           >
             <ChevronLeftIcon className='h-5 w-5 text-white' />
-          </button>
-          <button
+          </Button>
+
+          <Button
+            variant='icon'
             onClick={() => scroll('right')}
-            className='rounded-full bg-gray-800 p-2 transition-colors hover:bg-purple-600'
             aria-label='Scroll right'
+            className='hover:bg-purple-600'
           >
             <ChevronRightIcon className='h-5 w-5 text-white' />
-          </button>
+          </Button>
         </div>
       </div>
 

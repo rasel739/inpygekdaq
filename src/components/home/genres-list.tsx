@@ -5,7 +5,7 @@ import React from 'react';
 const GenresList = ({ genres }: { genres: Genre[] }) => {
   return (
     <section className='py-8'>
-      <h2 className='mb-6 text-2xl font-bold text-white'>Browse by Genre</h2>
+      <h2 className='mb-6 text-2xl font-bold '>Browse by Genre</h2>
       <div className='flex flex-wrap gap-3'>
         {genres.map((genre) => (
           <Link
