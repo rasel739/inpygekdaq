@@ -146,7 +146,7 @@ Before you begin, ensure you have the following installed:
 ```bash
 # 1. Clone the repository
 git clone https://github.com/rasel739/inpygekdaq.git
-cd movie-discovery-app
+cd inpygekdaq
 
 # 2. Install dependencies
 pnpm install
@@ -166,7 +166,7 @@ pnpm dev
 ```bash
 # 1. Clone the repository
 git clone https://github.com/rasel739/inpygekdaq.git
-cd movie-discovery-app
+cd inpygekdaq
 
 # 2. Set up environment variables
 cp .env.example .env.local
